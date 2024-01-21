@@ -62,3 +62,5 @@ end
 
 
 gem "devise", "~> 4.9"
+
+gem "bulma-rails", "~> 0.9.4"
