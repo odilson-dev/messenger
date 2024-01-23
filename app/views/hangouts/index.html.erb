@@ -3,17 +3,27 @@
 
 <div>
   <div id="message-display">
-  </div>
-  <div id="message-form">
-    <%= form_with model: @message, local: false do |f| %>
-      <div class="field has-addons">
-        <div class="control">
-          <%= f.text_field :body, id: 'message-input', class: 'input' %>
+        <% @messages.each do |message| %>
+        <article class="message">
+          <div class="message-header">
+            <%= message.user.email %>
+          </div>
+          <div class="message-body">
+            <%= message.body %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+    <div id="message-form">
+      <%= form_with model: @message, local: false do |f| %>
+        <div class="field has-addons">
+          <div class="control">
+            <%= f.text_field :body, id: 'message-input', class: 'input' %>
+          </div>
+          <div class="control">
+            <%= f.submit 'Send Message', class: 'button is-primary' %>
+          </div>
         </div>
-        <div class="control">
-          <%= f.submit 'Send Message', class: 'button is-primary' %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 </div>
