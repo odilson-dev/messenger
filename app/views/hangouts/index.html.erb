@@ -5,15 +5,15 @@
   <div id="message-display">
   </div>
   <div id="message-form">
-    <form action="" id="message-form">
+    <%= form_with model: @message, local: false do |f| %>
       <div class="field has-addons">
         <div class="control">
-          <input class="input" id="message-input" type="text">
+          <%= f.text_field :body, id: 'message-input', class: 'input' %>
         </div>
         <div class="control">
-          <input type="submit" value="Send Message" class="button is-primary">
+          <%= f.submit 'Send Message', class: 'button is-primary' %>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>
